@@ -287,8 +287,13 @@
                     </div>
                     <div class="content has-text-justified">
                         <p>
-                                Although <b><span style="color: #209CEF;">T2I models</span></b> can generate corresponding images based on text descriptions, improving their ability to maintain <b><span style="color: #209CEF;">text-image consistency</span></b> and <b><span style="color: #209CEF;">logical coherence</span></b> of image content remains a common challenge.  
-                                <b><span style="color: #209CEF;">Large language models</span></b> not only demonstrate exceptional performance in natural language processing tasks but also have the ability to process and understand image data. Their powerful text processing and cross-modal understanding capabilities make it possible to use them as substitutes for <b><span style="color: #209CEF;">human evaluators</span></b> in assessing image quality.
+                            <b><span style="color: #209CEF;">1. Text-to-Image (T2I) models face challenges:</span></b> <b>While T2I models can generate images from text, achieving consistent alignment between text and image content and ensuring logical coherence remain significant hurdles.</b>
+                        </p>
+                        <p>
+                            <b><span style="color: #209CEF;">2. Multimodal models offer new possibilities:</span></b> <b>Large language models excel in natural language tasks and can process image data, leveraging their cross-modal understanding to replace human evaluators in assessing image quality.</b>
+                        </p>
+                        <p>
+                            <b><span style="color: #209CEF;">3. Manual annotation is unsustainable and costly:</span></b> <b>With T2I models scaling from 860M to 2.6B parameters (SD v1.5 to SDXL), the data required for training is growing rapidly. Relying on costly manual annotation is impractical, making AI-driven annotation essential.</b>
                         </p>
                     </div>
                 </div>
@@ -346,7 +351,7 @@
                         style="display: block; margin-left: auto; margin-right: auto" />
                     <div class="content has-text-justified">
                         <p>
-                            <b>Overview of AGFSync.</b> This framework consists of three main steps: (1) Preference Candidate Set Generation, (2) Preference Pair Construction, and (3) DPO Alignment.  
+                            <b>Overview of AGFSync.</b> This framework consists of three main steps: <b><span style="color: #209CEF;">(1) Preference Candidate Set Generation</span></b>, <b><span style="color: #209CEF;">(2) Preference Pair Construction</span></b>, and <b><span style="color: #209CEF;">(3) DPO Alignment</span></b>.  
                             AGFSync effectively learns from AI-generated feedback data using DPO, eliminating the need for human annotation, model architecture modifications, or reinforcement learning.
                         </p>
                     </div>
@@ -365,7 +370,7 @@
             <pre><code>@article{AnJingkun2024AGFSync,
     title={AGFSync: Leveraging AI-Generated Feedback for Preference Optimization in Text-to-Image Generation},
     author={Jingkun An and Yinghao Zhu and Zongjian Li and Enshen Zhou and Haoran Feng and Xijie Huang and Bohua Chen and Yemin Shi and Chengwei Pan},
-    journal={arXiv preprint arXiv:2403.13352},
+    journal={AAAI 2025},
     year={2024}
 }</code></pre>
         </div>
