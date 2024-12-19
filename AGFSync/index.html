@@ -216,7 +216,7 @@
         </div>
     </section>
 
-<!-- YouTube Video -->
+<!-- Video Section -->
 <section class="hero is-small">
     <div class="hero-body">
         <div class="container is-max-desktop">
@@ -234,22 +234,27 @@
                             </div>
                         </h2>
                         <div class="publication-video">
+                            <!-- Video Container -->
                             <div id="video-container" style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
-                                <!-- Fallback Image -->
-                                <img id="loading-image" 
-                                     src="assets/images/video_placeholder.png" 
-                                     alt="Video Loading Placeholder" 
-                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
-                                
                                 <!-- YouTube Video -->
                                 <iframe id="youtube-video" 
                                         src="https://www.youtube.com/embed/qpSPhn9-PKg?rel=0&amp;showinfo=0"
                                         frameborder="0" 
                                         allow="autoplay; encrypted-media" 
                                         allowfullscreen
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; display: none;"
-                                        onload="hideLoadingImage()" 
-                                        onerror="showFallbackImage()"></iframe>
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;">
+                                </iframe>
+                                
+                                <!-- Bilibili Video -->
+                                <iframe id="bilibili-video" 
+                                        src="about:blank" 
+                                        frameborder="0" 
+                                        scrolling="no" 
+                                        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" 
+                                        allow="encrypted-media" 
+                                        allowfullscreen
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; display: none;">
+                                </iframe>
                             </div>
                         </div>
                     </div>
@@ -260,23 +265,45 @@
 </section>
 
 <script>
-    // 隐藏加载占位图，显示 iframe 视频
-    function hideLoadingImage() {
-        const video = document.getElementById("youtube-video");
-        const loadingImage = document.getElementById("loading-image");
-        loadingImage.style.display = "none";
-        video.style.display = "block";
+    // 定时检测 YouTube 加载状态
+    function checkYouTubeStatus() {
+        const youtubeVideo = document.getElementById("youtube-video");
+
+        // 如果iframe加载失败或意外终止连接，切换到Bilibili
+        const timeout = setTimeout(() => {
+            loadBilibiliVideo();
+        }, 3000); // 设置3秒超时时间
+
+        youtubeVideo.onload = () => {
+            // 如果加载成功，清除定时器
+            clearTimeout(timeout);
+        };
     }
 
-    // 如果加载失败，则显示备用图片
-    function showFallbackImage() {
-        const video = document.getElementById("youtube-video");
-        const loadingImage = document.getElementById("loading-image");
-        video.style.display = "none";
-        loadingImage.style.display = "block";
+    // 加载 Bilibili 视频
+    function loadBilibiliVideo() {
+        const youtubeVideo = document.getElementById("youtube-video");
+        const bilibiliVideo = document.getElementById("bilibili-video");
+
+        // 隐藏 YouTube iframe
+        youtubeVideo.style.display = "none";
+
+        // 设置 Bilibili iframe 的 src
+        bilibiliVideo.src = "https://player.bilibili.com/player.html?aid=113677348901038&bvid=BV1so4y1m7U5&cid=25734290114&page=1&high_quality=1&danmaku=0";
+
+        // 显示 Bilibili iframe
+        bilibiliVideo.style.display = "block";
     }
+
+    // 初始化检测
+    document.addEventListener("DOMContentLoaded", () => {
+        checkYouTubeStatus();
+    });
 </script>
 
+
+
+    </section>
 
 
     <!-- Motivation -->
