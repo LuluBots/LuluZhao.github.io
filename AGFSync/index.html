@@ -216,33 +216,67 @@
         </div>
     </section>
 
-    <!-- YouTube Video -->
-    <section class="hero is-small">
-        <div class="hero-body">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered has-text-centered">
-                    <div class="column is-four-fifths">
-                        <div class="content">
-                            <h2>
-                                <div class="text-image-container title is-3">
-                                    <div>
-                                        <img src="assets/images/video_logo.png" alt="highlight" width="40">
-                                    </div>
-                                    <div class="text">
-                                        <p>Summary Video</p>
-                                    </div>
+<!-- YouTube Video -->
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <div class="content">
+                        <h2>
+                            <div class="text-image-container title is-3">
+                                <div>
+                                    <img src="assets/images/video_logo.png" alt="highlight" width="40">
                                 </div>
-                            </h2>
-                            <div class="publication-video">
-                                <iframe src="https://www.youtube.com/embed/RIIKXX35czg?rel=0&amp;showinfo=0"
-                                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <div class="text">
+                                    <p>Summary Video</p>
+                                </div>
+                            </div>
+                        </h2>
+                        <div class="publication-video">
+                            <div id="video-container" style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0;">
+                                <!-- Fallback Image -->
+                                <img id="loading-image" 
+                                     src="assets/images/video_placeholder.png" 
+                                     alt="Video Loading Placeholder" 
+                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+                                
+                                <!-- YouTube Video -->
+                                <iframe id="youtube-video" 
+                                        src="https://www.youtube.com/embed/RIIKXX35czg?rel=0&amp;showinfo=0"
+                                        frameborder="0" 
+                                        allow="autoplay; encrypted-media" 
+                                        allowfullscreen
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; display: none;"
+                                        onload="hideLoadingImage()" 
+                                        onerror="showFallbackImage()"></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<script>
+    // 隐藏加载占位图，显示 iframe 视频
+    function hideLoadingImage() {
+        const video = document.getElementById("youtube-video");
+        const loadingImage = document.getElementById("loading-image");
+        loadingImage.style.display = "none";
+        video.style.display = "block";
+    }
+
+    // 如果加载失败，则显示备用图片
+    function showFallbackImage() {
+        const video = document.getElementById("youtube-video");
+        const loadingImage = document.getElementById("loading-image");
+        video.style.display = "none";
+        loadingImage.style.display = "block";
+    }
+</script>
+
 
 
     <!-- Motivation -->
