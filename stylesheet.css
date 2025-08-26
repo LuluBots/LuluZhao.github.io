@@ -1,4 +1,4 @@
-/* latin-ext */
+﻿/* latin-ext */
 @font-face {
   font-family: 'Lato';
   font-style: italic;
@@ -128,8 +128,8 @@ strong {
 }
 
 spacer {
-  display: block; /* 确保是块状元素 */
-  height: 10px; /* 设置段间距的高度 */
+  display: block; /* 纭繚鏄潡鐘跺厓绱� */
+  height: 10px; /* 璁剧疆娈甸棿璺濈殑楂樺害 */
 }
 
 heading {
